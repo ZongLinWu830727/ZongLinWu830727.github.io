@@ -6,11 +6,137 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        {
-            footer {
-                display: flex;
-                background-color: #000;
-            }
+        * {
+            margin: 0;
+        }
+
+        h2 {
+
+            margin-left: 225px;
+            margin-bottom: 30px;
+        }
+
+        .internal-link {
+
+            display: flex;
+            margin: 0 0 0 210px;
+        }
+
+        h2 img {
+            margin-top: 30px;
+
+        }
+
+        footer {
+            background-color: #383838;
+            height: 500px;
+        }
+
+        a {
+
+            color: #cfcfcf;
+            text-decoration: none;
+        }
+
+        nav {
+
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        div {
+            color: #cfcfcf;
+        }
+
+        li {
+            text-align: left;
+            list-style-type: none;
+            margin: 10px 0 0;
+        }
+
+
+
+        .internal-link ul {
+            width: 100px;
+            padding: 0;
+            font-size: 17px;
+            margin: 0 15px;
+
+        }
+
+        .internal-link b {
+            margin: 0 0 10px;
+        }
+
+        .internal-link li {
+            font-size: 14px;
+        }
+
+
+        .external-link {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+
+            /* justify-content: center; */
+        }
+
+
+
+
+        .external-link ul {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .external-link li {
+            text-align: left;
+            margin: 0 7px;
+        }
+
+        .external-link img {
+            margin: auto;
+
+        }
+
+        .external-link a {
+            text-decoration: revert;
+        }
+
+        .border-line {
+            width: 1px;
+            background-color: #FFF;
+            margin-left: 20px;
+        }
+
+        address {
+            margin-top: 40px;
+            font-size: 12px;
+            font-style: normal;
+        }
+
+        .footer-buttom-area {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 80px;
+            font-size: 14px;
+
+        }
+
+        .footer-buttom-area ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .footer-buttom-area li {
+
+            margin: 0 10px;
         }
     </style>
 
@@ -20,12 +146,17 @@
 
 
     <footer>
+        <!-- 最上方是Logo，非導覽列，故移出Nav區域 -->
+        <!-- footer內的標籤考量整體文章來看絕對不會是h1級別，故以h2做設定 -->
         <h2>
-            <img src="logo-red.svg" alt="">
+            <img src="/Picture/logo-white.png" alt="">
         </h2>
+        <!-- 研判下方都是導覽列項目，故整體都覆蓋 -->
         <nav>
-            <div>
-                <ul>內容分類
+            <!-- 左半邊設定區域(群組)，因內容都是引向這個網站的「內部」 -->
+            <div class="internal-link">
+                <!-- 加入B給粗體，不是用strong，因沒有要強調它 -->
+                <ul><b>內容分類</b>
                     <li><a href="#">焦點</a></li>
                     <li><a href="#">國際</a></li>
                     <li><a href="#">財經</a></li>
@@ -33,21 +164,21 @@
                     <li><a href="#">職場</a></li>
                     <li><a href="#">共好ESG</a></li>
                 </ul>
-                <ul>特色頻道
+                <ul><b>特色頻道</b>
                     <li><a href="#">名家專欄</a></li>
                     <li><a href="#">特別企劃</a></li>
                     <li><a href="#">影音</a></li>
                     <li><a href="#">商周財富網</a></li>
                     <li><a href="#">良醫健康網</a></li>
                 </ul>
-                <ul>商周線上讀
+                <ul><b>商周線上讀</b>
                     <li><a href="#">商周封面</a></li>
                     <li><a href="#">兩岸國際</a></li>
                     <li><a href="#">人物報導</a></li>
                     <li><a href="#">職場管理</a></li>
                     <li><a href="#">申請七天試閱</a></li>
                 </ul>
-                <ul>多元服務
+                <ul><b>多元服務</b>
                     <li><a href="#">訂閱商周</a></li>
                     <li><a href="#">客服中心</a></li>
                     <li><a href="#">常見問答</a></li>
@@ -57,25 +188,34 @@
                     <li><a href="#">序號兌換</a></li>
                 </ul>
             </div>
-
-            <div>
-                <ul>
-                    <li><a href="#"><img src="" alt=""></a></li>
-                    <li><a href="#"><img src="" alt=""></a></li>
-                    <li><a href="#"><img src="" alt=""></a></li>
-                    <li><a href="#"><img src="" alt=""></a></li>
-                    <li><a href="#"><img src="" alt=""></a></li>
-                </ul>
-                <ul>
-                    <li><a href="#"><img src="" alt=""></a></li>
-                    <li><a href="#"><img src="" alt=""></a></li>
-                    <li><a href="#"><img src="" alt=""></a></li>
-                    <li><a href="#"><img src="" alt=""></a></li>
-                    <li><a href="#"><img src="" alt=""></a></li>
-                    <li><a href="#"><img src="" alt=""></a></li>
-                    <li><a href="#">下載App抽好禮</a></li>
-                    <li><a href="#">訂閱電子報</a></li>
-                </ul>
+            <div class="border-line"></div>
+            <!-- 右半邊設定區域(群組)，因內容「多數」(第一個標籤是網站本體)是引向非網站主要項目的-->
+            <div class="external-link">
+                <div>
+                    <ul>
+                        <li><a href="#"><img src="Picture/logo-white-small.png" alt=""></a></li>
+                        <li><a href="#"><img src="Picture/smart-white.png" alt=""></a></li>
+                        <li><a href="#"><img src="Picture/health-white.png" alt=""></a></li>
+                        <li><a href="#"><img src="Picture/alive-white.png" alt=""></a></li>
+                        <li><a href="#"><img src="Picture/bwe-white.png" alt=""></a></li>
+                    </ul>
+                </div>
+                <!-- 第二區域設定，目的同上，該區域為網站社群與好康資訊連結 -->
+                <div>
+                    <ul>
+                        <li><a href="#"><img src="/Picture/footer-fb-normal.png" alt=""></a></li>
+                        <li><a href="#"><img src="/Picture/footer-line-normal.png" alt=""></a></li>
+                        <li><a href="#"><img src="/Picture/footer-yt-normal.png" alt=""></a></li>
+                        <li><a href="#"><img src="/Picture/footer-web-normal.png" alt=""></a></li>
+                        <li><a href="#"><img src="/Picture/footer-instagram.svg" alt=""></a></li>
+                        <li><a href="#"><img src="/Picture/footer-telegram.svg" alt=""></a></li>
+                        <li><a href="#">下載App抽好禮</a></li>
+                        <li><a href="#">訂閱電子報</a></li>
+                    </ul>
+                </div>
+                <!-- <div> -->
+                <!-- 標籤語意上強調「聯絡方式」的區域，實際測試後發現外部再包覆div好像無效果，且已經強調該區域內容，故移除div -->
+                <!-- 紀錄：整體上沒有用div，會有懷疑該區域標籤設定是否正確 -->
                 <address>
                     <ul>
                         <li>
@@ -86,11 +226,30 @@
                             傳真
                             <br>(02) 2503-6989
                         </li>
-                        <li>服務時間
+                        <li>
+                            服務時間
                             <br>週一至週五09:00~18:00 (例假日除外)
                         </li>
                     </ul>
                 </address>
+                <!-- </div> -->
+            </div>
+            <!-- 底部部分設定區域，這個部分比較特殊，不看視覺效果的話，它是在說明網站的法律權益、使用說明等雜項 -->
+            <div class="footer-buttom-area">
+                <!-- 分析思考為是在這個區域的內文，故加上p段落符號區分 -->
+                <p>
+                    &copy;2019 Business Weekly a division of Cite Publishing Ltd All Rights Reserved.
+                </p>
+
+                <ul>
+                    <li><a href="#">關於商周集團</a></li>
+                    <li><a href="#">公告</a></li>
+                    <li><a href="#">文章影音授權</a></li>
+                    <li><a href="#">廣告合作</a></li>
+                    <li><a href="#">常見問題</a></li>
+                    <li><a href="#">隱私權聲明</a></li>
+                    <li><a href="#">網站導覽</a></li>
+                </ul>
             </div>
         </nav>
     </footer>
