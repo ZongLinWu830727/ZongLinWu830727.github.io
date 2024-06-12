@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* 上方title區域設定 */
+        .title {
+            background-color: #bababa;
+            text-align: center;
+            margin: auto;
+            height: 150px;
+            padding: 50px 0;
+        }
+
+
+
+        /* 中間主文設定 */
+        /* 問題：寬度設定確認，1100px是自己判斷的，是否有固定預設值? */
+        .middle-div {
+            width: 1100px;
+            display: flex;
+            flex-wrap: wrap;
+
+            /* 外部間隔沒有算在寬度內 */
+            /* 為了置中與間隔設定 */
+            margin: auto;
+            /* 問題：使用flex-wrap: 導致justify-content: center; 無效*/
+            /* justify-content: center; */
+
+        }
+
+        .middle-div .Website-description {
+            display: flex;
+            height: 500px;
+        }
+
+        /* 偶數反向切圖 */
+        .middle-div .Website-description:nth-child(2n) {
+            flex-direction: row-reverse;
+        }
+
+
+        /* 總寬度600px */
+        .middle-div .Website-description .txt {
+            width: 500px;
+            height: 400px;
+            /* 設定與圖片區域的間距 */
+            padding-right: 100px;
+            
+        }
+
+        /* 圖片區域總寬度500px，因圖片最大500px */
+        .middle-div .Website-description .pic {
+            width: 500px;
+            height: 450px;
+            /* 圖片大小不一 為避免寬度有空格，使用置中設定 */
+            text-align: center;
+        }
+
+        /* 設定隨著.pic區域一同移動 */
+        /* 不用margin直接設定百分比，因為評估讓圖片只保留大小百分比
+        其他設定則由pic區域完成 */
+        .middle-div .Website-description img {
+            /* 分析圖片在網站大小調整 */
+            width: 90%;
+            height: 90%;
+
+        }
+
+        .txt h2,
+        p {
+            margin: 20px 0;
+        }
+
+        .txt ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        /* 控制兩邊間距共500px，因上方文字區域實際500px */
+        li {
+            /* 問題：原本想用list-style-position將「圓點」放入區域內並在調整 */
+            /* 但用inside沒辦法縮小「圓點」跟文字的間距 */
+            /* list-style-position: inside; */
+            width: 225px;
+            margin: 5px 0;
+            text-indent: -5px;
+            margin-left: 25px;
+        }
+
+        li::marker {
+            color: blue;
+            font-size: 30px;
+
+        }
+
+        /* 不能設定上下間距，改用ul設定 */
+        .txt a {
+            text-decoration: underline;
+        }
+
+        /* 下方更多服務設定 */
+
+        .service-area {
+            background-color: #d3d3d3;
+            text-align: center;
+
+
+
+
+        }
+
+        .service-area h2 {
+            padding-top: 75px;
+            padding-bottom: 75px;
+        }
+
+        .service-list {
+            /* 問題：與主文的部分同等寬度，是否該獨立寬度 */
+            width: 1100px;
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+            padding-bottom: 50px;
+            margin-bottom: 100px;
+
+            /* 水平置中 */
+            justify-content: center;
+
+
+        }
+
+        .service-options {
+            width: 350px;
+            margin: 0 5px;
+
+        }
+
+        .service-options h2 {
+            /* 覆蓋上方的h2 */
+            padding: 0;
+        }
+
+        .service-options .pic {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 標示這個是上方區域 -->
+    <div class="title">
+        <!-- 只切單一網頁，故設定最先的標題為h1級別 -->
+        <h1>
+            單一平台就能助你<br>在全通路輕鬆開店創業
+        </h1>
+        <p>從網路商店架站到實體門市管理，只需要一個平台，就能輕鬆實現開店創業，並能同步管理所有銷售管道，SHOPLINE 助你賣得更多、賣得更好！</p>
+    </div>
+    <!-- 標示為中間區域 -->
+    <div class="middle-div">
+        <!-- 五個同樣區域 -->
+        <div class="Website-description">
+            <div class="txt">
+                <h2>免寫程式、多款版型
+                    <br>輕鬆打造全能電商網站
+                </h2>
+                <p>不會寫程式也能輕鬆架設品牌電商官網！任何產業都能找到合適的專業設計版型，以滑鼠拖曳就能完成網頁編輯，讓架設網站就像堆積木一樣簡單</p>
+                <ul>
+                    <li>豐富版型主題與自行搭配</li>
+                    <li>RWD響應式網頁設計</li>
+                    <li>獨有網誌 & SSL安全憑證</li>
+                    <li>SEO 搜尋引擎優化</li>
+                    <li>一頁商店</li>
+                    <li>開放 HTML / CSS 編輯</li>
+                </ul>
+                <!-- 不清楚箭頭設計方法，需請教 -->
+                <a href="">看看開店密技</a>
+            </div>
+            <!-- 設定pic區域讓它可以被控制與設計 -->
+            <div class="pic">
+                <img src="/HTML作業/0611picture/500x.webp">
+            </div>
+        </div>
+        <div class="Website-description">
+            <div class="txt">
+                <h2>
+                    支持海內外電商
+                    <br>金流、物流一次搞定
+                </h2>
+                <p>支持在地及國際金流、物流串接服務，提供海內外顧客最便利的付款及送貨服務，加速消費者完成下單交易，大幅降低購物車放棄率</p>
+                <ul>
+                    <li>線上/線下信用卡刷卡</li>
+                    <li>第三分金流/行動支付整合</li>
+                    <li>超商代碼/掃碼繳費</li>
+                    <li>多溫層宅配並指定運費</li>
+                    <li>超商/宅配貨到付款</li>
+                    <li>發票開立與串接</li>
+                </ul>
+                <a href="">了解更多金物流</a>
+            </div>
+            <div class="pic">
+                <img src="/HTML作業/0611picture/500x2.webp">
+            </div>
+        </div>
+        <div class="Website-description">
+            <div class="txt">
+                <h2>刺激下單，創造回購
+                    <br>行銷導流、促購模組任你玩
+                </h2>
+                <p>多元優惠活動、會員集客機制、網紅分潤等多種優惠促銷，將電商行銷玩法一網打盡；加上廣告追蹤助你有效優化行銷活動，刺激顧客下單、吸引鐵粉回購！</p>
+                <ul>
+                    <li>推薦活動與分潤</li>
+                    <li>A+B 優惠活動</li>
+                    <li>會員分級/點數／購物金</li>
+                    <li>買Ｘ享Ｙ優惠</li>
+                    <li>會員推薦獎賞</li>
+                    <li>FB/Google/LINE 廣告追蹤</li>
+                </ul>
+                <a href="">看更多優惠模組</a>
+            </div>
+            <div class="pic">
+                <img src="/HTML作業/0611picture/500x3.webp">
+            </div>
+        </div>
+        <div class="Website-description">
+            <div class="txt">
+                <h2>「社群+電商」輕鬆開賣
+                    <br>打造一致的社群購物體驗
+                </h2>
+                <p>善用社群與顧客頻繁互動，讓你透過社群也能輕鬆開賣！從直播 +1 接單、聊天機器人到各管道的訊息整合，我們都為你準備好了，不放過每個銷售環節，打造全方位的社群購物體驗！</p>
+                <ul>
+                    <li>社群直播購物系統</li>
+                    <li>FB & IG 貼文 +1</li>
+                    <li>自訂聊天機器人腳本</li>
+                    <li>FB/IG/LINE 直播 +1</li>
+                    <li>FB/IG/LINE 對話式購物</li>
+                    <li>訊息整合中心</li>
+                </ul>
+                <a href="">看更多社群購物功能</a>
+            </div>
+            <div class="pic">
+                <img src="/HTML作業/0611picture/500x4.webp">
+            </div>
+        </div>
+        <div class="Website-description">
+            <div class="txt">
+                <h2>OMO 全通路無縫整併
+                    <br>輕鬆管理網店、門市以及其他通路
+                </h2>
+                <p>不論是網店拓展門市，還是門市想發展網路生意，從商品、庫存、訂單到會員等各項虛實店舖的資料都能完善整併，輕鬆實現全通路會員經營到多店營運。</p>
+                <ul>
+                    <li>門市 POS 系統</li>
+                    <li>線上線下會員／商品／庫存整合
+                    </li>
+                    <li>門市快速集客工具</li>
+                    <li>線上買門市取</li>
+                    <li>進銷庫存／調撥／多店管理</li>
+                    <li>Smart OMO 會員導購工具</li>
+                </ul>
+                <a href="">了解更多全通路整合</a>
+            </div>
+            <div class="pic">
+                <img src="/HTML作業/0611picture/500x5.webp">
+            </div>
+        </div>
+    </div>
+    <!-- 標示更多功能與服務區域 -->
+    <div class="service-area">
+        <h2>更多功能與服務</h2>
+        <div class="service-list">
+            <div class="service-options">
+                <div class="pic">
+                    <img src="/HTML作業/0611picture/asset 0.svg">
+                </div>
+                <div class="txt">
+                    <h2>強大庫存與訂單系統</h2>
+                    <p>從商品數量、貨況到訂單付款狀態、物流貨態一目瞭然，提升營運效率超有感。</p>
+                </div>
+            </div>
+            <div class="service-options">
+                <div class="pic">
+                    <img src="/HTML作業/0611picture/asset 1.svg">
+                </div>
+                <div class="txt">
+                    <h2>即時化商店業績分析</h2>
+                    <p>圖表化報表助你一手掌握商店概況，讓數據助攻企業成長，營運策略更有方向。</p>
+                </div>
+            </div>
+            <div class="service-options">
+                <div class="pic">
+                    <img src="/HTML作業/0611picture/asset 2.svg">
+                </div>
+                <div class="txt">
+                    <h2>多國語系、幣值切換</h2>
+                    <p>想做跨境電商也ＯＫ！提供語言、幣別、稅金等進階功能，友善應對海外消費需求。</p>
+                </div>
+            </div>
+            <div class="service-options">
+                <div class="pic">
+                    <img src="/HTML作業/0611picture/asset 3.svg">
+                </div>
+                <div class="txt">
+                    <h2>專業顧問線上支援</h2>
+                    <p>迅速、透明的溝通管道，協助你快速解決從線上到線下、從在地到海外的網店疑難。</p>
+                </div>
+            </div>
+            <div class="service-options">
+                <div class="pic">
+                    <img src="/HTML作業/0611picture/asset 4.svg">
+                </div>
+                <div class="txt">
+                    <h2>廣告行銷加值服務</h2>
+                    <p>由官方認證的專業投手團隊，協助品牌投遞 Facebook、Google、LINE 等廣告。</p>
+                </div>
+            </div>
+            <div class="service-options">
+                <div class="pic">
+                    <img src="/HTML作業/0611picture/asset 5.svg">
+                </div>
+                <div class="txt">
+                    <h2>品牌專屬成長社群</h2>
+                    <p>致力為品牌店家打造能深度交流且互助的生態體系，是拓展人脈、商機的絕佳場域。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
