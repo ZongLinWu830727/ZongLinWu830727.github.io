@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        /* 全版面寬度數值先設定 */
+        .ShopLineAllDiv {
+            /* 以桌機寬度設定 */
+            width: 1920px;
+            /* 檢查用背景色 */
+            /* background-color: rgb(244, 244, 244); */
+        }
+
+        /* --------------------------------------開頭說明區域-------------------------------------- */
+        .Opening-Narration {
+            background-color: rgb(203, 233, 255);
+            /* 整個區域文字置中 */
+            text-align: center;
+            /* 因為沒有其他內容提高高度，所以自己拉個高度固定該區域 */
+            height: 300px;
+            /* 整個區域置中 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .Opening-Narration h2,
+        p {
+            /* 內部區域兩個各自做外部的間距 */
+            margin: 10px 0;
+        }
+
+        /* --------------------------------------內文說明區域-------------------------------------- */
+        .Textual-Narrative {
+            /* 檢查用背景色 */
+            /* background-color: rgba(0, 168, 50, 0.703); */
+            /* 建立.Advantage-Description排版 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .Advantage-Description {
+            /* 中間稍微減少寬度，自己抓左右兩邊約20% */
+            /* 1920*0.6=1152 */
+            width: 1152px;
+            /* background-color: #dedede; */
+            /* 相互之間建立間距 */
+            margin: 15px 0;
+            /* 建立.txt&.pic排版 */
+            display: flex;
+        }
+
+        /* 反向切圖 */
+        .Advantage-Description:nth-child(2n) {
+            flex-direction: row-reverse;
+        }
+
+        .Advantage-Description .txt {
+            /* 兩個寬度給一致，各50% */
+            /* 1152*0.5=576 */
+            width: 536px;
+            /* 建立.txt內部排版 */
+            display: flex;
+            flex-direction: column;
+            /* 內部整體區域置中 */
+            justify-content: center;
+            margin: 0 20px;
+
+        }
+
+        .Advantage-Description .txt ul {
+            /* 建立2欄3列換行排版 */
+            display: flex;
+            /* 做法：設定li寬度再讓他們2欄換行一次 */
+            flex-wrap: wrap;
+
+        }
+
+        .Advantage-Description .txt li {
+            /* 寬度定50% */
+            /* 576*0.5=288 */
+            width: 268px;
+            /* 上下給寬度 */
+            margin: 0px 0;
+            /* 把原點列入到div內 */
+            list-style-position: inside;
+        }
+
+        /* 提問：請教文字跟原點的間距處理問題 */
+
+
+        .Advantage-Description .txt li::marker {
+            color: blue;
+            font-size: 30px;
+        }
+
+        .Advantage-Description .txt h2,
+        p,
+        a,
+        ul {
+            /* 平均間距 */
+            margin: 15px 0;
+        }
+
+        /* 提問：我這樣子先針對每一個區域向下都給一個基礎寬度，會不會導致後面要修改的時候過於複雜，是否該先把最上層的部分先設定好 後在往下進行? */
+
+        .Advantage-Description .pic {
+            /* 兩個寬度給一致，各50% */
+            /* 1152*0.5=576 */
+            width: 536px;
+            /* 為了置中再次建立flex */
+            display: flex;
+            margin: 0 20px;
+        }
+
+        .Advantage-Description .pic img {
+            /* 詢問，圖片無法單獨用margin:auto(我用flex再用margin)*/
+            margin: auto;
+        }
+
+
+        /* --------------------------------------更多服務區域-------------------------------------- */
+        .More-Services {
+            background-color: rgb(221, 237, 255);
+            text-align: center;
+            /* 建立.Service-List排版，只有一個目的：置中 */
+            display: flex;
+            /* 因為標題也會被排到，所以以直行方式排列 */
+            flex-direction: column;
+            /* 物件置中 */
+            align-items: center;
+
+        }
+
+        .More-Services h2 {
+            margin: 50px 0;
+        }
+
+        .Service-List {
+            /* background-color: #dedede; */
+            /* 寬度與.Advantage-Description同寬 */
+            width: 1152px;
+            /* 建立.Service-Items排版 */
+            /* 這裡做3欄2列換行排版 */
+            display: flex;
+            /* 做法：設定.Service-Items區域寬度再讓他們2欄換行一次 */
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .Service-Items {
+            /* 寬度等於.Advantage-Description同寬度分3等分 */
+            /* 1152/3=384; */
+            width: 364px;
+            margin: 20px 10px;
+        }
+
+        /* 提問：是否是因為我內部的.pic跟.txt都向上繼承了.Service-Items寬度，導致我即使不用flex也可以做到排版?*/
+
+        .Service-Items .pic {
+            /* 因上方已經設定外部整個區域的間距了，所以只設定內部對下方.txt區域的間距加長 */
+            margin-bottom: 15px;
+        }
+
+        .Service-Items .txt h3,
+        p {
+            /* 因為裡面的間距也要設定，所以就不設定.txt改設定h3跟p的間距來拉長整體 */
+            margin: 15px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ShopLineAllDiv">
+        <!-- --------------------------------------開頭說明區域-------------------------------------- -->
+        <div class="Opening-Narration">
+            <!-- 我這次觀看整體，包含沒有切版的地方來分析，所以我認為這次的標題是h2級別 -->
+            <h2>單一平台就能助你<br>在全通路輕鬆開店創業</h2>
+            <p>從網路商店架站到實體門市管理，只需要一個平台，就能輕鬆實現開店創業，並能同步管理所有銷售管道，SHOPLINE 助你賣得更多、賣得更好！</p>
+        </div>
+        <!-- --------------------------------------內文說明區域-------------------------------------- -->
+        <div class="Textual-Narrative">
+            <!-- 單一一個區域的設定 -->
+            <div class="Advantage-Description">
+                <div class="txt">
+                    <h2>免寫程式、多款版型
+                        <br>輕鬆打造全能電商網站
+                    </h2>
+                    <p>不會寫程式也能輕鬆架設品牌電商官網！任何產業都能找到合適的專業設計版型，以滑鼠拖曳就能完成網頁編輯，讓架設網站就像堆積木一樣簡單</p>
+                    <ul>
+                        <li>豐富版型主題與自行搭配</li>
+                        <li>SEO 搜尋引擎優化</li>
+                        <li>RWD響應式網頁設計</li>
+                        <li>一頁商店</li>
+                        <li>獨有網誌 & SSL安全憑證</li>
+                        <li>開放 HTML / CSS 編輯</li>
+                    </ul>
+                    <a href="#">看看開店密技</a>
+                </div>
+                <div class="pic">
+                    <img src="/HTML-HomeWork/ShopLine-Picture/500x.webp">
+                </div>
+            </div>
+            <div class="Advantage-Description">
+                <div class="txt">
+                    <h2>支持海內外電商
+                        <br>金流、物流一次搞定
+                    </h2>
+                    <p>支持在地及國際金流、物流串接服務，提供海內外顧客最便利的付款及送貨服務，加速消費者完成下單交易，大幅降低購物車放棄率</p>
+                    <ul>
+                        <li>線上/線下信用卡刷卡</li>
+                        <li>第三分金流/行動支付整合</li>
+                        <li>超商代碼/掃碼繳費</li>
+                        <li>多溫層宅配並指定運費</li>
+                        <li>超商/宅配貨到付款</li>
+                        <li>發票開立與串接</li>
+                    </ul>
+                    <a href="#">了解更多金物流</a>
+                </div>
+                <div class="pic">
+                    <img src="/HTML-HomeWork/ShopLine-Picture/500x2.webp">
+                </div>
+            </div>
+            <div class="Advantage-Description">
+                <div class="txt">
+                    <h2>「社群+電商」輕鬆開賣
+                        <br>打造一致的社群購物體驗
+                    </h2>
+                    <p>善用社群與顧客頻繁互動，讓你透過社群也能輕鬆開賣！從直播 +1 接單、聊天機器人到各管道的訊息整合，我們都為你準備好了，不放過每個銷售環節，打造全方位的社群購物體驗！</p>
+                    <ul>
+                        <li>社群直播購物系統</li>
+                        <li>FB & IG 貼文 +1</li>
+                        <li>自訂聊天機器人腳本</li>
+                        <li>FB/IG/LINE 直播 +1</li>
+                        <li>FB/IG/LINE 對話式購物</li>
+                        <li>訊息整合中心</li>
+                    </ul>
+                    <a href="">看更多社群購物功能</a>
+                </div>
+                <div class="pic">
+                    <img src="/HTML-HomeWork/ShopLine-Picture/500x3.webp">
+                </div>
+            </div>
+            <div class="Advantage-Description">
+                <div class="txt">
+                    <h2>「社群+電商」輕鬆開賣
+                        <br>打造一致的社群購物體驗
+                    </h2>
+                    <p>善用社群與顧客頻繁互動，讓你透過社群也能輕鬆開賣！從直播 +1 接單、聊天機器人到各管道的訊息整合，我們都為你準備好了，不放過每個銷售環節，打造全方位的社群購物體驗！</p>
+                    <ul>
+                        <li>社群直播購物系統</li>
+                        <li>FB & IG 貼文 +1</li>
+                        <li>自訂聊天機器人腳本</li>
+                        <li>FB/IG/LINE 直播 +1</li>
+                        <li>FB/IG/LINE 對話式購物</li>
+                        <li>訊息整合中心</li>
+                    </ul>
+                    <a href="#">看更多社群購物功能</a>
+                </div>
+                <div class="pic">
+                    <img src="/HTML-HomeWork/ShopLine-Picture/500x4.webp">
+                </div>
+            </div>
+            <div class="Advantage-Description">
+                <div class="txt">
+                    <h2>OMO 全通路無縫整併
+                        <br>輕鬆管理網店、門市以及其他通路
+                    </h2>
+                    <p>不論是網店拓展門市，還是門市想發展網路生意，從商品、庫存、訂單到會員等各項虛實店舖的資料都能完善整併，輕鬆實現全通路會員經營到多店營運。</p>
+                    <ul>
+                        <li>門市 POS 系統</li>
+                        <li>線上線下會員／商品／庫存整合
+                        </li>
+                        <li>門市快速集客工具</li>
+                        <li>線上買門市取</li>
+                        <li>進銷庫存／調撥／多店管理</li>
+                        <li>Smart OMO 會員導購工具</li>
+                    </ul>
+                    <a href="#">了解更多全通路整合</a>
+                </div>
+                <div class="pic">
+                    <img src="/HTML-HomeWork/ShopLine-Picture/500x5.webp">
+                </div>
+            </div>
+        </div>
+        <!-- --------------------------------------更多服務區域-------------------------------------- -->
+        <div class="More-Services">
+            <!-- h2沒有要排版 -->
+            <h2>更多功能與服務</h2>
+            <!-- 與上方標題區分，跟方便做版面，建立div -->
+            <div class="Service-List">
+                <div class="Service-Items">
+                    <!-- 參照課程建立圖片與文字的區域，預先設定要做flex排版 -->
+                    <div class="pic">
+                        <img src="/HTML-HomeWork/ShopLine-Picture/asset 0.svg" alt="">
+                    </div>
+                    <div class="txt">
+                        <!-- 內層h3 -->
+                        <h3>強大庫存與訂單系統</h3>
+                        <p>從商品數量、貨況到訂單付款狀態、物流貨態一目瞭然，提升營運效率超有感。</p>
+                    </div>
+                </div>
+                <div class="Service-Items">
+                    <div class="pic">
+                        <img src="/HTML-HomeWork/ShopLine-Picture/asset 1.svg" alt="">
+                    </div>
+                    <div class="txt">
+                        <h3>即時化商店業績分析</h3>
+                        <p>圖表化報表助你一手掌握商店概況，讓數據助攻企業成長，營運策略更有方向。</p>
+                    </div>
+                </div>
+                <div class="Service-Items">
+                    <div class="pic">
+                        <img src="/HTML-HomeWork/ShopLine-Picture/asset 2.svg" alt="">
+                    </div>
+                    <div class="txt">
+                        <h3>多國語系、幣值切換</h3>
+                        <p>想做跨境電商也ＯＫ！提供語言、幣別、稅金等進階功能，友善應對海外消費需求。</p>
+                    </div>
+                </div>
+                <div class="Service-Items">
+                    <div class="pic">
+                        <img src="/HTML-HomeWork/ShopLine-Picture/asset 3.svg" alt="">
+                    </div>
+                    <div class="txt">
+                        <h3>專業顧問線上支援</h3>
+                        <p>迅速、透明的溝通管道，協助你快速解決從線上到線下、從在地到海外的網店疑難。</p>
+                    </div>
+                </div>
+                <div class="Service-Items">
+                    <div class="pic">
+                        <img src="/HTML-HomeWork/ShopLine-Picture/asset 4.svg" alt="">
+                    </div>
+                    <div class="txt">
+                        <h3>廣告行銷加值服務</h3>
+                        <p>由官方認證的專業投手團隊，協助品牌投遞 Facebook、Google、LINE 等廣告。</p>
+                    </div>
+                </div>
+                <div class="Service-Items">
+                    <div class="pic">
+                        <img src="/HTML-HomeWork/ShopLine-Picture/asset 5.svg" alt="">
+                    </div>
+                    <div class="txt">
+                        <h3>品牌專屬成長社群</h3>
+                        <p>致力為品牌店家打造能深度交流且互助的生態體系，是拓展人脈、商機的絕佳場域。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
