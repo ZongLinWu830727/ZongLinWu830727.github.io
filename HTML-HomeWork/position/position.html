@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 先設定版面最大大小 */
+        body {
+            width: 1920px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 在設定排版重製 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 優勢清單檢查區域寬度 */
+        .advantage-list {
+            /* 1920*0.6=1152 */
+            width: 1152px;
+            background-color: #aaa8;
+
+
+        }
+
+        .advantage-details {
+            /* 每個細項設定相對定位 */
+            /* 讓其他定位以它為準 */
+            position: relative;
+        }
+
+        .advantage-details-relative {
+            position: relative;
+            z-index: 2;
+
+        }
+
+        .advantage-details-absolute {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            z-index: 1;
+
+        }
+
+        /* ================================================相對區域的位置================================================ */
+        /* 優勢大綱 */
+        /* 以它為基準設定設計細節區域的位置 */
+        .advantage-outline {
+            background-color: #fff;
+            /* 1152 /2 *0.7 =403.2*/
+            width: 403px;
+        }
+
+        .advantage-outline-title {
+            background-color: red;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        .number {
+            /* 403 * 0.35 =141.05 */
+            width: 141px;
+            font-size: 120px;
+            transform: rotate(90deg);
+        }
+
+        h2 {
+            /* 403 - 141= 262*/
+            width: 262px;
+            font-size: 63px;
+
+        }
+
+        .txt {
+            background-color: #000;
+            color: #fff;
+            padding: 20px 0 40px 20px;
+        }
+
+        .txt h3 {
+            font-size: 24px;
+
+        }
+
+        .txt p {
+            font-size: 24px;
+
+        }
+
+
+        /* 設計細節區域 */
+        .design-details {
+            background-color: #e9e9e9;
+            /* 約優勢大綱區域寬度2倍 */
+            width: 806px;
+            /* 提升高度 */
+            margin-top: 265px;
+            position: relative;
+            /* 約1/8的位置 */
+            left: 80px;
+
+        }
+
+        .design-details h3 {
+            color: red;
+            margin: 10px 0px 10px 20px;
+            font-size: 30px;
+        }
+
+        .design-details-list h3 {
+            width: fit-content;
+            background-color: #000;
+            color: #fff;
+        }
+
+
+        .design-details-list p::before {
+            text-indent: 0em;
+            content: '●';
+            color: red;
+            display: inline-block;
+            scale: .3;
+        }
+
+        .design-details-list p {
+            padding-left: 2em;
+            text-indent: -1em;
+        }
+
+
+        .wrap {
+            display: flex;
+            align-items: center;
+        }
+
+        .line {
+            height: 3px;
+            width: 460px;
+            background-color: red;
+        }
+
+        /* ================================================絕對區域的位置================================================ */
+        /* 參考圖區域 */
+        .reference-area {
+            /* 以圖片區域為基準，設定寬度 */
+            /* 大約多設計細節區域約一點，增加30px */
+            width: 836px;
+            right: 0;
+            top: 0;
+
+
+        }
+
+        .main-reference-picture {
+            /* 同上 */
+            width: 100%;
+            /* background-color: rgb(118, 221, 255); */
+            text-align: center;
+            position: relative;
+            bottom: 200px;
+            right: 100px;
+
+            /* 設定順序 */
+            z-index: 2;
+
+
+        }
+
+        .main-reference-picture img {
+            /* 圖片在整體版面不夠大，調整寬度 */
+            width: 100%;
+        }
+
+        /* YTlogo區域 */
+        .YTlogo {}
+
+        /* 背景區域 */
+        .background-div {
+            /* 約是整體區域寬度的45% */
+            /* 1152 * 0.45 = 518.4 */
+            width: 518px;
+            /* 高度約圖片0.65 */
+            /* 圖片為836 * 517 */
+            /* 517 * 0.65 =336.05 */
+            height: 336px;
+            background-color: #aaa;
+            position: relative;
+            z-index: 1;
+            top: 70px;
+
+        }
+
+        /* 誰跟誰做相對 */
+        /* 文字區域 */
+        /* 誰要做絕對? */
+        /* 圖片區域 */
+    </style>
+
+</head>
+
+<body>
+    <!-- 最大區域-五大優勢 -->
+    <div class="advantage-list">
+        <!-- 單一項目，優勢說明 -->
+        <div class="advantage-details">
+            <!-- 五個細項區域，先分兩個區域，其中一個獨立一層 -->
+            <!-- 獨立出來的區域 -->
+            <div class="advantage-details-absolute">
+                <!-- 背景圖區域 -->
+                <div class="background-div"></div>
+                <!-- 參考圖區域 -->
+                <div class="reference-area">
+                    <div class="main-reference-picture">
+                        <img src="/HTML-HomeWork/position/pictures/car-1.png" alt="">
+                    </div>
+                    <div class="YTlogo">
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- 專門放相對區域的 -->
+            <div class="advantage-details-relative">
+                <!-- 優勢大綱 -->
+                <div class="advantage-outline">
+                    <div class="advantage-outline-title">
+                        <h2 class="number">01</h2>
+                        <h2>操控樂趣</h2>
+                    </div>
+                    <div class="txt">
+                        <h3>人人滿意的駕駛體驗</h3>
+                        <p>透過最佳重量分配，實現平順起步、直線穩定加速，過彎同時保持車身平穩，帶給駕駛更靈敏的道路反饋，享受隨心馳成的行駛快感。</p>
+                    </div>
+                </div>
+
+                <!-- 設計細節 -->
+                <div class="design-details">
+                    <!-- 同樣的項目區域中，但是本身不同區域，所以用h3標示為另一個小標題 -->
+                    <div class="wrap">
+                        <h3>因為我們做了這些革新</h3>
+                        <div class="line"></div>
+                    </div>
+                    <div class="design-details-list">
+                        <div class="item">
+                            <h3>低重心設計</h3>
+                            <p>透過低重心設計，不僅呈現更低伏的外觀，更能減少車身側傾，保持高速行駛穩定性。</p>
+                        </div>
+                        <div class="item">
+                            <h3>車體剛性強化</h3>
+                            <p>車身結構採用超高強度鋼材，提高車輛穩定性，同時藉由雷射強化焊接技術，大幅增加焊點數量，提升車身抗扭剛性，強化駕馭穩定性及安全性。</p>
+                        </div>
+                        <div class="item">
+                            <h3>四輪獨立懸吊</h3>
+                            <p>搭載全新四輪獨立懸吊設定，透過懸吊的高乘載強度，保持輪胎抓地力，同時兼顧轉向靈敏度與清晰路感回饋，提升駕馭樂趣。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
