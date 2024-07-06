@@ -1,0 +1,329 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* 
+<!-- 先手機版本 -->
+<!-- 導覽列 -->
+<!-- 包含左側選單框、LOGO標誌、關於hawaii連結 --> 
+*/
+
+nav.hawaii-nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #aaa6;
+}
+
+.hawaii-left-nav-icon {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hawaii-left-nav-icon a {}
+
+.hawaii-logo {
+    width: 35%;
+}
+
+.hawaii-logo img {
+    width: 100%;
+    vertical-align: top;
+}
+
+.about-hawaii {
+    width: 20%;
+    margin-left: auto;
+}
+
+.about-hawaii a {
+    font-size: 10px;
+    color: #fa0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* <!-- 內文區域 -->
+<!-- 第一區 -->
+<!-- 包含最大標題、第二標題、大圖、小圓文字圖、內文 --> */
+
+
+
+/* <!-- 最大標題 --> */
+.origin-narrative h1 {
+    padding: 40px 0px 5px 20px;
+    font-size: 72px;
+}
+
+.origin-narrative h2 {
+    padding: 5px 0px 30px 20px;
+    font-size: 16px;
+}
+
+/* 第一區主圖片 */
+.origin-narrative .main-image {
+    position: relative;
+}
+
+.origin-narrative .main-image img.main-image {
+    width: 100%;
+}
+
+/* 第一區內文 */
+.origin-narrative p {
+    font-size: 13px;
+    padding: 20px;
+    line-height: 2em;
+}
+
+/* 小圓文字圖 */
+.special-effects-pic {
+    position: absolute;
+    top: -41.7px;
+    right: 8%;
+    width: 80px;
+}
+
+.special-effects-pic .round-text {
+    width: 100%;
+}
+
+.special-effects-pic .round-text {
+    position: relative;
+}
+
+.special-effects-pic .arrow {
+    position: absolute;
+    top: 29px;
+    right: 28px;
+}
+
+/* 第二區內文 */
+.responsible-tourism {
+    padding: 15px;
+    background-color: #ffe5e6;
+}
+
+.responsible-tourism-pic img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.responsible-tourism h2 {
+    margin: 20px 0;
+    font-size: 20px;
+}
+
+.responsible-tourism p {
+    font-size: 14px;
+    margin: 20px 0;
+    line-height: 2em;
+}
+
+.responsible-tourism a {
+    font-size: 14px;
+    color: #fa0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* 第三區 */
+.travel-articles-narrative {
+    text-align: center;
+    font-size: 10px;
+    margin: 40px 0;
+}
+
+/* 標題 */
+.travel-articles h2 {
+    font-size: 40px;
+    margin: 20px 10px;
+}
+
+.travel-articles-title-css {
+    color: #fa0;
+}
+
+
+
+/* 定位文章 */
+.hawaii-information-list {
+    /* 不確定是否用固定寬度，這可能是js特效 */
+    width: 980px;
+    display: flex;
+    gap: 20px;
+    margin: 0 20px;
+
+}
+
+/* 按鈕 */
+.information-link-buttom {
+    font-size: 12px;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    padding: 10px;
+    width: fit-content;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.main-display .span-div {
+    width: 100%;
+    flex-grow: 1;
+}
+
+
+/* 標題與文字 */
+.hawaii-information-list h3 {
+    padding: 20px;
+    color: #fff;
+}
+
+.small-text {
+    font-size: 10px;
+    padding-left: 20px;
+    padding-bottom: 40px;
+    color: #fff;
+}
+
+p.hide {
+    font-size: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
+    padding-top: 20px;
+    line-height: 2em;
+    color: #fff;
+    opacity: 0;
+}
+
+.span-div {
+    color: #fff;
+}
+
+
+
+
+/* <!-- 第一張圖 --> */
+.about-responsible-travel {
+    width: 300px;
+    height: 380px;
+    background-image: url(/HTML-HomeWork//Hawaii//pictures/responsive_tourism.png);
+    background-size: 300px 380px;
+}
+
+.about-responsible-travel a:hover .span-div span {
+    background-color: #fff;
+    color: #000;
+}
+
+.about-responsible-travel a:hover .about-responsible-travel.hide {
+    opacity: 1;
+}
+
+
+/* 第二張圖 */
+.unique-challenges {
+    width: 300px;
+    height: 380px;
+    background-image: url(/HTML-HomeWork/Hawaii/pictures/aloha_challenge.png);
+    background-size: 300px 380px;
+}
+
+.unique-challenges a:hover .span-div span {
+    background-color: #fff;
+    color: #000;
+}
+
+.unique-challenges a:hover .about-responsible-travel.hide {
+    opacity: 1;
+}
+
+
+/* 第三張圖 */
+.sightseeing-speech {
+    width: 300px;
+    height: 380px;
+    background-image: url(/HTML-HomeWork/Hawaii/pictures/pono_traveler.png);
+    background-size: 300px 380px;
+}
+
+.sightseeing-speech a:hover .span-div span {
+    background-color: #fff;
+    color: #000;
+}
+
+.sightseeing-speech a:hover .about-responsible-travel.hide {
+    opacity: 1;
+}
+
+
+
+
+/* LATEST區域
+大區域：左右切換(flex橫排、對調)
+中區域：grid格線清單(8格，4:1、1、1、1)
+內部卡片區域：圖片、標題、內文(統一，其他的隱藏、日期) */
+
+.span-flex-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.span-flex {
+    width: 100%;
+    padding: 0 20px;
+}
+
+.span {
+    flex-grow: 1;
+    border: 1px solid #000;
+}
+
+h2 {
+
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.log {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.pic img {
+    width: 100%;
+    vertical-align: top;
+}
+
+.text {
+    display: flex;
+}
+
+.p-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.text h4 {
+    width: 50%;
+}
+
+.text .p-flex {
+    width: 50%;
+}

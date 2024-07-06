@@ -26,9 +26,9 @@
             /* 1920*0.6=1152 */
             width: 1152px;
             background-color: #aaa8;
-        }
 
-        /* ----------------------------------------------------------------------------------- */
+
+        }
 
         .advantage-details {
             /* 每個細項設定相對定位 */
@@ -100,7 +100,6 @@
 
         }
 
-        /* ----------------------------------------------------------------------------------- */
 
         /* 設計細節區域 */
         .design-details {
@@ -117,27 +116,28 @@
 
         .design-details h3 {
             color: red;
-            margin: 10px 0px 10px 20px;
+            padding: 10px 0px 10px 20px;
             font-size: 30px;
         }
 
-        .design-details-list h3 {
+        .design-details ul {
+            padding-bottom: 10px;
+        }
 
+        .design-details ul li {
+            display: inline-block;
             background-color: #000;
             color: #fff;
+            font-size: 20px;
+            margin-left: 20px;
         }
 
-
-        .design-details-list p::before {
-            content: '●';
-            color: red;
-            display: inline-block;
-            scale: 0.9;
+        .design-details ul li ul li {
+            padding-left: 1em;
+            text-indent: -1em;
+            list-style-type: disc;
         }
 
-        .design-details-list p {
-
-        }
 
 
         .wrap {
@@ -252,20 +252,23 @@
                         <h3>因為我們做了這些革新</h3>
                         <div class="line"></div>
                     </div>
-                    <div class="design-details-list">
-                        <div class="item">
-                            <h3>低重心設計</h3>
-                            <p>透過低重心設計，不僅呈現更低伏的外觀，更能減少車身側傾，保持高速行駛穩定性。</p>
-                        </div>
-                        <div class="item">
-                            <h3>車體剛性強化</h3>
-                            <p>車身結構採用超高強度鋼材，提高車輛穩定性，同時藉由雷射強化焊接技術，大幅增加焊點數量，提升車身抗扭剛性，強化駕馭穩定性及安全性。</p>
-                        </div>
-                        <div class="item">
-                            <h3>四輪獨立懸吊</h3>
-                            <p>搭載全新四輪獨立懸吊設定，透過懸吊的高乘載強度，保持輪胎抓地力，同時兼顧轉向靈敏度與清晰路感回饋，提升駕馭樂趣。</p>
-                        </div>
-                    </div>
+                    <ul>
+                        <li>低重心設計
+                            <ul>
+                                <li>透過低重心設計，不僅呈現更低伏的外觀，更能減少車身側傾，保持高速行駛穩定性。</li>
+                            </ul>
+                        </li>
+                        <li>車體剛性強化
+                            <ul>
+                                <li>車身結構採用超高強度鋼材，提高車輛穩定性，同時藉由雷射強化焊接技術，大幅增加焊點數量，提升車身抗扭剛性，強化駕馭穩定性及安全性。</li>
+                            </ul>
+                        </li>
+                        <li>四輪獨立懸吊
+                            <ul>
+                                <li>搭載全新四輪獨立懸吊設定，透過懸吊的高乘載強度，保持輪胎抓地力，同時兼顧轉向靈敏度與清晰路感回饋，提升駕馭樂趣。</li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
