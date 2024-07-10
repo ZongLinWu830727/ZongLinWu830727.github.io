@@ -101,6 +101,8 @@ nav.hawaii-nav {
 
 .special-effects-pic .round-text {
     position: relative;
+    animation-timeline: scroll(self);
+    transform: rotate(90deg);
 }
 
 .special-effects-pic .arrow {
