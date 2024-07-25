@@ -12,11 +12,11 @@
             width: 14.2%;
             border: 1px solid #fa0;
             text-align: center;
-            min-height: 75px;
+            height: 75px;
         }
 
         .st-h {
-            min-height: 25px;
+            height: 25px;
         }
 
         .back-ground-color {
@@ -50,49 +50,13 @@
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div>
-                <!-- 是一組的，所以表示每次建立的一個代辦事項，都要有一組這個 -->
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    新增代辦事項
-                </button>
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">新增代辦事項</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <p>請輸入代辦事項</p>
-                                <input id="todo_input" type="text" class="form-control" placeholder="請輸入待辦事項..." />
-                                <p>設定日期</p>
-                                <input type="date" class="date_set_by_add">
-
-
-
-
-                                <!-- //建立一個代辦事項空間
-                  包含：
-                  1.標題:輸入的內容
-                  2.日期:
-                  3.完成與否 -->
-
-
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" id="add_btn"
-                                    data-bs-dismiss="modal">新增按鈕</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-success" type="submit">
+                        Search
+                    </button>
+                </form>
             </div>
 
             <!-- <div class="input-group">
@@ -126,6 +90,45 @@
         <div class="col-1">1/8</div> -->
     </div>
 
+    <!-- 是一組的，所以表示每次建立的一個代辦事項，都要有一組這個 -->
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        新增代辦事項
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">新增代辦事項</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>請輸入代辦事項</p>
+                    <input id="todo_input" type="text" class="form-control" placeholder="請輸入待辦事項..." />
+                    <p>設定日期</p>
+                    <input type="date" class="date_set_by_add">
+
+
+
+
+                    <!-- //建立一個代辦事項空間
+          包含：
+          1.標題:輸入的內容
+          2.日期:
+          3.完成與否 -->
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="add_btn" data-bs-dismiss="modal">新增按鈕</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <template id="temp">
         <div id="todoitem_temp">
@@ -141,21 +144,18 @@
                                 <p class="m-auto">事項名稱</p>
                                 <input class="todoitem-text" type="text" id="todo_input_save" disabled>
                             </div>
-                            <button type="button" class="btn-close close_btn" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <div class="d-flex flex-column">
                                 <p class="text-start mb-0">設定的日期</p>
                                 <input type="text" id="todoitem_date" class="date_set" disabled>
                                 <div class="d-flex ms-0 mt-4">
-
+                                    <input class="form-check-input is-done-input" type="checkbox" value=""
+                                        id="flexCheckDefault">
                                     <label class="form-check-label" for="flexCheckDefault" id="">
-                                        <input class="form-check-input is-done-input check_btn" type="checkbox" value=""
-                                            id="flexCheckDefault">
                                         完成
                                     </label>
-
                                 </div>
                             </div>
                         </div>
@@ -165,9 +165,7 @@
                                 data-bs-dismiss="modal">儲存</button>
                             <button type="button" class="btn btn-secondary remove_btn" id=""
                                 data-bs-dismiss="modal">刪除</button>
-                            <button type="button" class="btn btn-secondary close_btn"
-                                data-bs-dismiss="modal">關閉</button>
-
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
                         </div>
                     </div>
                 </div>
@@ -221,8 +219,8 @@
         //h1的即時顯示
         function h1Text(dayNowYear, dayNowMonth) {
             const showDateInfo = new Date(dayNowYear, dayNowMonth);
-            calendarText.textContent = `${showDateInfo.getFullYear()}/${showDateInfo.getMonth() + 1
-                }月`;
+            h1.textContent = `${showDateInfo.getFullYear()}/${showDateInfo.getMonth() + 1
+                }`;
         }
 
         // 上個月按鈕
@@ -259,7 +257,8 @@
         let dayNowYear = dayNow.getFullYear();
         // console.log(`dayNowYear=${dayNowYear}`);
 
-        calendarText.textContent = `${dayNowYear}/${dayNowMonth + 1}月`;
+        const h1 = document.querySelector("#calendar_text");
+        h1.textContent = `${dayNowYear}/${dayNowMonth + 1}`;
 
         // 建立空的陣列，放置當月月份日期的集合
         let dateArray = [];
@@ -372,14 +371,14 @@
         function createrTodoItem(event) {
             const todoInput = document.querySelector("#todo_input");
             let todoContent = todoInput.value.trim();
-            console.log(todoContent);
+            console.log(todoContent)
             const todoDate = document.querySelector(".date_set_by_add");
-            console.log(todoDate.value);
+            console.log(todoDate.value)
             if (todoContent == '' || todoDate.value == '') {
-                todoInput.value = '';
-                todoDate.value = '';
-                console.log(todoContent);
-                console.log(todoDate.value);
+                todoInput.value = ''
+                todoDate.value = ''
+                console.log(todoContent)
+                console.log(todoDate.value)
             } else {
                 console.dir(todoDate);
                 if (!todoContent) return;
@@ -396,11 +395,11 @@
                 saveTodoItem(todoItem);
                 // // 生成TODO 的 HTML
                 const todoItemDOM = setTodoItem(todoItem);
-                calendarDateDiv.append(todoItemDOM);
-                todoInput.value = '';
-                todoDate.value = '';
-                console.log(todoContent);
-                console.log(todoDate.value);
+                calendarDateDiv.append(todoItemDOM)
+                todoInput.value = ''
+                todoDate.value = ''
+                console.log(todoContent)
+                console.log(todoDate.value)
             }
 
         }
@@ -413,7 +412,7 @@
         function createTodolistDiv(todoItem) {
 
             // console.log(todoItem.id);
-            const idNum = `${todoItem.date}`;
+            const idNum = `${todoItem.date}`
             // console.log(idNum)
             const x = document.querySelector(`#date${todoItem.date.valueOf()}`);
             // console.log(x);
@@ -428,47 +427,33 @@
             }
         };
         function setTodoItem(todoItem) {
-            const temp = document.querySelector("#temp");
+            const temp = document.querySelector("#temp")
             // console.log(temp)
             const todoItemEl = temp.content.querySelector("#todoitem_temp").cloneNode(true);
             // console.log(todoItemEl)
 
             todoItemEl.dataset.id = todoItem.id;
-            console.log(todoItem.isDone)
-            todoItemEl.querySelector(".is-done-input").checked = todoItem.isDone;
-            todoItemEl.querySelector(".is-done-input").addEventListener("click", check)
+            todoItemEl.querySelector(".is-done-input").checked = todoItem.isDone
+
             //設定兩個連接獨立出來
 
-            todoItemEl.querySelector("#todoitem_context").setAttribute("data-bs-target", `#${todoItem.id}`);
-            todoItemEl.querySelector("#new_model").setAttribute("id", `${todoItem.id}`);
+            todoItemEl.querySelector("#todoitem_context").setAttribute("data-bs-target", `#${todoItem.id}`)
+            todoItemEl.querySelector("#new_model").setAttribute("id", `${todoItem.id}`)
 
-            todoItemEl.querySelector("#todoitem_context").textContent = todoItem.content;
+            todoItemEl.querySelector("#todoitem_context").textContent = todoItem.content
 
-            todoItemEl.querySelector("#todoitem_date").value = `${new Date(todoItem.date).getFullYear()}/${new Date(todoItem.date).getMonth() + 1}/${new Date(todoItem.date).getDate()}`;
+            todoItemEl.querySelector("#todoitem_date").value = `${new Date(todoItem.date).getFullYear()}/${new Date(todoItem.date).getMonth() + 1}/${new Date(todoItem.date).getDate()}`
 
-            todoItemEl.querySelector(".todoitem-text").value = todoItem.content;
-
-
+            todoItemEl.querySelector(".todoitem-text").value = todoItem.content
 
             todoItemEl.querySelector(".edit_btn").setAttribute("id", `edit${todoItem.id.slice(4)}`)
             todoItemEl.querySelector(".remove_btn").setAttribute("id", `remove${todoItem.id.slice(4)}`)
-
-
-
             // 增加編輯
             todoItemEl.querySelector(".edit_btn").addEventListener("click", edit);
             todoItemEl.querySelector(".save_btn").addEventListener("click", save);
             todoItemEl.querySelector(".remove_btn").addEventListener("click", remove);
-
-            const closeBtn = todoItemEl.querySelectorAll(".close_btn");
-            console.log(closeBtn)
-            closeBtn.forEach(function (el, idx) {
-                el.addEventListener("click", close)
-            })
-
             return todoItemEl
         }
-
 
         //儲存
 
@@ -515,7 +500,10 @@
                         const todoItemDOM = setTodoItem(todoItem);
                         calendarDateDiv.append(todoItemDOM)
                     }
+
+
                 }
+
             });
         }
 
@@ -568,8 +556,6 @@
             const todoDate = todoitemLocation.querySelector(".date_set")
             console.log(todoDate)
 
-
-
             if (todoContent == '' || todoDate.value == '') {
                 window.alert("錯誤，請輸入內容");
             } else {
@@ -584,7 +570,7 @@
                 saveTodoListToStorage(todoList);
                 getTodoListFromStorage()
                 renderingTodoList()
-                location.reload()
+
             }
         }
         function remove(event) {
@@ -599,58 +585,7 @@
             location.reload();
 
         }
-        function close(event) {
-            const closeBtn = event.target;
-            console.log(closeBtn)
-            const todoitemLocation = closeBtn.parentNode.parentNode.parentNode.parentNode.parentNode
-            console.log(todoitemLocation);
-            //將限制條回來
-            const saveBtn = todoitemLocation.querySelector(".save_btn")
-            const editBtn = todoitemLocation.querySelector(".edit_btn")
-            console.log(todoitemLocation);
-            //兩個文字唯讀控制
-            const todoTextcont = todoitemLocation.querySelector(".todoitem-text")
-            todoTextcont.setAttribute('disabled', true)
-            const todoitemDate = todoitemLocation.querySelector("#todoitem_date")
-            todoitemDate.setAttribute('disabled', true)
-            todoitemDate.setAttribute("type", "text")
-            const todoList = getTodoListFromStorage();
-            console.log(todoList)
-            const todoitemIndex = todoList.findIndex((item) => item.id === todoitemLocation.dataset.id)
-            const DateText = new Date(todoList[todoitemIndex].date)
-            console.log(DateText);
-            todoitemDate.value = `${DateText.getFullYear()}-${DateText.getMonth() + 1 < 10 ? '0' + (DateText.getMonth() + 1) : (DateText.getMonth() + 1)}-${DateText.getDate() < 10 ? '0' + DateText.getDate() : DateText.getDate()}`
-            todoTextcont.value = `${todoList[todoitemIndex].content}`
-            console.log(saveBtn.classList)
-            saveBtn.classList.add('d-none')
-            editBtn.classList.remove("d-none")
-            const removeBtn = todoitemLocation.querySelector(".remove_btn")
-            console.log(removeBtn)
 
-            location.reload()
-
-        }
-
-
-        function check(event) {
-            const checkBtn = event.target;
-            console.log(checkBtn)
-            const todoitemLocation = checkBtn.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode
-            console.log(todoitemLocation)
-            const todoList = getTodoListFromStorage();
-            console.log(todoList)
-            const todoitemIndex = todoList.findIndex((item) => item.id === todoitemLocation.dataset.id)
-            const checkBtn2 = todoitemLocation.querySelector(".is-done-input")
-            console.log(checkBtn2)
-            console.log(todoList[todoitemIndex])
-            todoList[todoitemIndex].isDone = checkBtn2.checked
-
-
-            saveTodoListToStorage(todoList);
-            getTodoListFromStorage()
-            renderingTodoList()
-
-        }
     </script>
 </body>
 

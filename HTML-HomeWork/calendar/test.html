@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+</head>
+
+<body>
+
+    <div class="container">
+
+    </div>
+
+    <template id="RE">
+        <div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Launch demo modal
+            </button>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">新增代辦事項</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>請輸入代辦事項</p>
+                            <input id="todo_input" type="text" class="form-control" placeholder="請輸入待辦事項..." />
+                            <p>設定日期</p>
+                            <input type="date" id="date_set">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="add_btn"
+                                data-bs-dismiss="modal">新增按鈕</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+
+    <button id="ABC">test</button>
+    <!-- <div>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#new_model">
+            Launch demo modal
+        </button>
+        <div class="modal fade" id="new_model" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5 todoitem_text" id="exampleModalLabel"></h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="todoitem_temp">
+                            <p id="todoitem_date">設定的日期</p>
+                            <input class="form-check-input is-done-input" type="checkbox" value=""
+                                id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault" id="">
+                                完成
+                            </label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <!-- 多個按鈕 -->
+    <button class="myButton">Button 1</button>
+    <button class="myButton">Button 2</button>
+    <button class="myButton">Button 3</button>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+
+    <script>
+        // 獲取所有帶有 class "myButton" 的按鈕
+        const buttons = document.querySelectorAll('.myButton');
+
+        // 為每個按鈕添加點擊事件監聽器
+        buttons.forEach(button => {
+            button.addEventListener('click', function (event) {
+                // 使用 event.target 獲取被點擊的按鈕
+                const clickedButton = event.target;
+                console.log('Clicked button:', clickedButton);
+
+                // 在這裡你可以對被點擊的按鈕進行操作
+                // 例如，改變按鈕的文字
+                clickedButton.textContent = 'Clicked!';
+            });
+        });
+
+
+        // const RE = document.querySelector("#RE");
+        // // 找到對應日期空間的ID
+        // const cont = document.querySelector(".container")
+        // cont.innerHTML += `
+        // <hr>`
+        // // RE.innerHTML =
+        // // console.log(RE.content)
+        // // console.log(RE.innerHTML)
+        // // const test = RE.content.cloneNode(1);
+        // // console.log(test)
+        // // // console.log(RE2.firstElementChild)
+        // // // const test = RE2.firstElementChild.id = `${i}`
+        // // document.querySelector(".container").appendChild(test);
+
+
+
+        // const container = document.querySelector(".container")
+
+        // RE.innerHTML = `<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        //     Launch demo modal
+        // </button>
+        // <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        //     <div class="modal-dialog">
+        //         <div class="modal-content">
+        //             <div class="modal-header">
+        //                 <h1 class="modal-title fs-5" id="exampleModalLabel">新增代辦事項</h1>
+        //                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        //             </div>
+        //             <div class="modal-body">
+        //                 <p>請輸入代辦事項</p>
+        //                 <input id="todo_input" type="text" class="form-control" placeholder="請輸入待辦事項..." />
+        //                 <p>設定日期</p>
+        //                 <input type="date" id="date_set">`
+
+        // const todoItem = {
+        //     id: new Date(Date.now()).valueOf(),
+        //     content: "todoContent",
+        //     isDone: false,
+        //     date: new Date(new Date(Date.now()).setHours(0, 0, 0, 0)),
+        // };
+
+
+        // const key = "todoList"
+        // saveTodoItem(todoItem)
+        // function saveTodoItem(todoItem) {
+        //     //取得現在所有的todoItem,再加上去
+        //     const todoList = getTodoListFromStorage();
+        //     todoList.push(todoItem);
+        //     saveTodoListToStorage(todoList);
+        // }
+
+
+
+        // function getTodoListFromStorage() {
+        //     //取得現在所有的todoItem,再加上去
+        //     const localStorageItem = localStorage.getItem(key);
+        //     console.log(localStorageItem);
+        //     return localStorageItem ? JSON.parse(localStorageItem) : [];
+        // }
+
+
+        // function saveTodoListToStorage(todoList) {
+        //     const json = JSON.stringify(todoList);
+        //     localStorage.setItem(key, json);
+        // }
+
+
+        // function renderingTodoList() {
+        //     const todoList = getTodoListFromStorage();
+        //     if (!todoList) return;
+
+
+        //     todoList.forEach((todoItem) => {
+
+        //         const calendarDateDiv = document.querySelector(`#date${todoItem.date.valueOf()}`);
+        //         console.log(calendarDateDiv);
+        //         if (calendarDateDiv.id == `date${todoItem.date.valueOf()}`) {
+        //             console.log(x.id);
+        //             console.log("有成功對應到");
+        //             // 有對應到了，差連接
+        //             const todoItemDOM = setTodoItem(todoItem);
+        //             calendarDateDiv.append(todoItemDOM)
+
+        //         } else {
+        //             console.log(x.id);
+        //             console.log("沒有成功對應到");
+        //         }
+
+
+        //     });
+        // }
+
+
+
+
+        // const json = '{ "id": 1721814946211, "content": "todoContent", "isDone": false, "date": "2024-07-23T16:00:00.000Z" }'
+        // const obj = JSON.parse(json);
+        // const date = new Date(obj.date);
+        // console.log(obj)
+        // console.log(date)
+        // const x = document.querySelector("#asd");
+        // console.log(x);
+
+        // const btn = document.querySelector("#ABC");
+        // btn.addEventListener("click", GOGO(123));
+        // function GOGO(X) {
+        //     console.log('-------------------------------------------------------------------');
+        //     console.log(x);
+        // }
+
+
+
+    </script>
+</body>
+
+</html>
